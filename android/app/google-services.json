@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "235952755342",
+    "project_id": "anime-ecommerce",
+    "storage_bucket": "anime-ecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235952755342:android:de5d569f02d33f00c9afdf",
+        "android_client_info": {
+          "package_name": "com.example.anime_ecommerce_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235952755342-96p4qaojmaf5fq1np5ij5qmqfd509in4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.anime_ecommerce_app",
+            "certificate_hash": "214e00b0df732805ed53330902354039b95d4d01"
+          }
+        },
+        {
+          "client_id": "235952755342-q207i1s5g0jbelkppt7nem0qcld6kq8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT6NUFWPS9yj_s126VzsUcqTQYZUEs96k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235952755342-q207i1s5g0jbelkppt7nem0qcld6kq8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
