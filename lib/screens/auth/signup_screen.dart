@@ -1,9 +1,10 @@
 import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
-import 'package:anime_ecommerce_app/screens/home/home.dart';
+
 import 'package:anime_ecommerce_app/screens/profile/profile_with_login.dart';
+import 'package:anime_ecommerce_app/screens/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
+
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../constants/colors.dart';
@@ -17,6 +18,8 @@ import '../../widgets/social_button.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
+  // final int index;
+
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
@@ -28,6 +31,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+
+  // onTap() async {
+  //   try {
+  //     bool userCreated = (await controller.signupMethod(
+  //       context: context,
+  //       email: emailController.text,
+  //       password: passwordController.text,
+  //     )) as bool;
+
+  //     if (userCreated) {
+  //       await controller.storeUserData(
+  //         name: nameController.text,
+  //         email: emailController.text,
+  //         password: passwordController.text,
+  //       );
+  //       Get.offAll(() => const TabsScreen());
+  //     } else {
+  //       throw Exception("Already registered user");
+  //     }
+  //   } catch (e) {
+  //     auth.signOut();
+  //     VxToast.show(context, msg: e.toString());
+  //   }
+  // }
 
   onTap() async {
     try {
@@ -44,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           password: passwordController.text,
         );
       }).then((value) {
-        Get.to(() => const ProfileWithLogin());
+        Get.offAll(() => const ProfileWithLogin());
         // Navigator.pushNamed(context, '/signup');
       });
     } catch (e) {
@@ -140,27 +167,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
 }
 
 
-
-// InkWell(
-//                     onTap: () async {
-//                       try {
-//                         await controller
-//                             .signupMethod(
-//                           context: context,
-//                           email: emailController.text,
-//                           password: passwordController.text,
-//                         )
-//                             .then((value) {
-//                           return controller.storeUserData(
-//                             name: nameController.text,
-//                             email: emailController.text,
-//                             password: passwordController.text,
-//                           );
-//                         }).then((value) {
-//                           Get.offAll(ProfileWithLogin());
-//                         });
-//                       } catch (e) {
-//                         auth.signOut();
-//                         VxToast.show(context, msg: e.toString());
-//                       }
-//                     },

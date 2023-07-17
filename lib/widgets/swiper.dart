@@ -19,27 +19,42 @@ class Swiper extends StatelessWidget {
   double? margin;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-      width: double.infinity,
-      child: VxSwiper.builder(
-          autoPlay: true,
-          enableInfiniteScroll: true,
-          enlargeCenterPage: isEnlarged,
-          scrollDirection: Axis.horizontal,
-          itemCount: imagePath.length,
-          itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.symmetric(horizontal: margin ?? 0),
-              width: width,
-              // height: 400,
-              color: color,
-              child: Image.asset(
-                imagePath[index],
-                height: 300,
-              ),
-            );
-          }),
+    return Stack(
+      children: [
+        Image.asset('assets/images/pic.png'),
+        Positioned(
+          top: 65,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            child: VxSwiper.builder(
+                autoPlay: true,
+                enableInfiniteScroll: true,
+                enlargeCenterPage: isEnlarged,
+                scrollDirection: Axis.horizontal,
+                itemCount: imagePath.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: margin ?? 0),
+                    width: width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: color,),
+                    // height: 400,
+                    
+                    child: Image.asset(
+                      imagePath[index],
+                      height: 230,
+                    ),
+                  );
+                }),
+          ),
+        ),
+      ],
     );
   }
 }
+
+
+
+
+

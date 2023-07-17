@@ -1,16 +1,24 @@
 import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AuthController extends GetxController {
 
+  var isLoading = false.obs;
+
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
+
   //login method
-  Future<UserCredential?> loginMethod({email, password, context}) async {
+  Future<UserCredential?> loginMethod({context}) async {
     UserCredential? userCredential;
     try{
-      await auth.signInWithEmailAndPassword(email: email, password: password);
+      await auth.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch(e){
       VxToast.show(context, msg: e.toString());
     }
@@ -37,8 +45,11 @@ storeUserData({name, password, email}) async {
     'name': name,
     'email': email,
     'password': password,
-    
+    'id': currentUser!.uid,
     'imgUrl': '',
+    'cart_count': 0,
+    'wishlist_count': 0,
+    'orders_count': 0,
     
   });
 }
@@ -49,5 +60,10 @@ storeUserData({name, password, email}) async {
     await auth.signOut();
   }
 }
+
+
+
+
+
 
 
