@@ -20,9 +20,28 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedIndex = 0;
 
+  late Widget _currentProfileScreen;
+
+  @override
+  void initState() {
+    super.initState();
+    _updateProfileScreen();
+  }
+
+void _updateProfileScreen() {
+    if (auth.currentUser == null) {
+      _currentProfileScreen = const ProfileScreenWithoutLogin();
+    } else {
+      _currentProfileScreen = const ProfileWithLogin();
+    }
+  }
+
   void _navigateBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
+      if (index == 3) {
+        _updateProfileScreen();
+      }
     });
   }
 
@@ -30,24 +49,14 @@ class _TabsScreenState extends State<TabsScreen> {
     const HomeScreen(),
     const SearchScreen(),
     const FavoruitsScreen(),
-    // _profile(),
-    if (auth.currentUser == null) 
-        const ProfileScreenWithoutLogin()
-    else
-      const ProfileWithLogin(),
-    // const ProfileScreen(),
+    ProfileScreenWithoutLogin(), // Placeholder, will be replaced dynamically
   ];
-
-  // _profile() {
-  //   if (auth.currentUser == null) {
-  //     _pages.add(const ProfileScreenWithoutLogin());
-  //   } else {
-  //     _pages.add(const ProfileWithLogin());
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
+
+    _pages[3] = _currentProfileScreen;
+
     return Scaffold(
         body: _pages[_selectedIndex],
         bottomNavigationBar: Container(

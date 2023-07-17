@@ -4,6 +4,7 @@ import 'package:anime_ecommerce_app/screens/home/widgets/appbar.dart';
 import 'package:anime_ecommerce_app/screens/home/widgets/category_list.dart';
 import 'package:anime_ecommerce_app/screens/home/widgets/header.dart';
 import 'package:anime_ecommerce_app/widgets/gridview_builder.dart';
+import 'package:anime_ecommerce_app/widgets/swiper.dart';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -11,7 +12,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import 'dart:ui';
 
-import '../../widgets/swiper.dart';
+import 'widgets/swiper.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -79,9 +80,18 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               thickness: 1,
             ),
-            Image.asset(
-              'assets/images/akatsi.png',
-              height: 300,
+            Swiper1(10, imagePath: firstSwiper, isEnlarged: false, width: double.infinity,color: Colors.deepPurple[200],),
+            50.heightBox,
+            Center(
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'assets/images/akatsi.png',
+                    height: 400,
+                  ),
+                  Image.asset('assets/images/obito2.png', height: 400)
+                ],
+              ),
             ),
 
             10.heightBox,
