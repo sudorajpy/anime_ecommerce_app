@@ -57,28 +57,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
   // }
 
   onTap() async {
-    try {
-      await controller
-          .signupMethod(
-        context: context,
+  // Perform form validation before sign up
+  if (nameController.text.isEmpty ||
+      emailController.text.isEmpty ||
+      passwordController.text.isEmpty) {
+    // Display error message or prevent form submission
+    return;
+  }
+
+  try {
+    await controller.signupMethod(
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+    ).then((value) {
+      return controller.storeUserData(
+        name: nameController.text,
         email: emailController.text,
         password: passwordController.text,
-      )
-          .then((value) {
-        return controller.storeUserData(
-          name: nameController.text,
-          email: emailController.text,
-          password: passwordController.text,
-        );
-      }).then((value) {
-        Get.offAll(() => const ProfileWithLogin());
-        // Navigator.pushNamed(context, '/signup');
-      });
-    } catch (e) {
-      auth.signOut();
-      VxToast.show(context, msg: e.toString());
-    }
+      );
+    }).then((value) {
+      Get.offAll(() => const ProfileWithLogin());
+    });
+  } catch (e) {
+    auth.signOut();
+    VxToast.show(context, msg: e.toString());
   }
+}
+
+
+  // onTap() async {
+  //   try {
+  //     await controller
+  //         .signupMethod(
+  //       context: context,
+  //       email: emailController.text,
+  //       password: passwordController.text,
+  //     )
+  //         .then((value) {
+  //       return controller.storeUserData(
+  //         name: nameController.text,
+  //         email: emailController.text,
+  //         password: passwordController.text,
+  //       );
+  //     }).then((value) {
+  //       Get.offAll(() => const ProfileWithLogin());
+  //       // Navigator.pushNamed(context, '/signup');
+  //     });
+  //   } catch (e) {
+  //     auth.signOut();
+  //     VxToast.show(context, msg: e.toString());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

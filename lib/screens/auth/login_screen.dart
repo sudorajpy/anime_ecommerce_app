@@ -10,6 +10,7 @@ import '../../widgets/gradiant_button.dart';
 
 import '../../widgets/custome_text_field.dart';
 import '../../widgets/social_button.dart';
+import '../profile/profile_with_login.dart';
 import '../tabs.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -33,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
           SingleChildScrollView(
             child: Center(
               child: Obx(
-                ()=> Column(
+                () => Column(
                   children: [
                     // 54.heightBox,
                     // Image.asset('assets/images/signin_balls.png'),
@@ -67,23 +68,40 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: controller.passwordController,
                     ),
                     30.heightBox,
-                    controller.isLoading.value ? CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-                    ) : GradientButton(
-                      onPressed: () async {
-                        controller.isLoading.value = true;
-                        await controller
-                            .loginMethod(context: context)
-                            .then((value) {
-                          if (value != null) {
-                            Get.offAll(() => const TabsScreen());
-                          }else{
-                            controller.isLoading.value = false;
-                          }
-                        });
-                      },
-                      buttonText: 'Sign In',
-                    ),
+                    controller.isLoading.value
+                        ? CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.green),
+                          )
+                        : GradientButton(
+                            onPressed: () async {
+                              controller.isLoading.value = true;
+  await controller.loginMethod(context: context).then((value) {
+    if (value != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProfileWithLogin()),
+      );
+    } else {
+      controller.isLoading.value = false;
+    }
+  });
+},
+
+                            // () async {
+                            //   controller.isLoading.value = true;
+                            //   await controller
+                            //       .loginMethod(context: context)
+                            //       .then((value) {
+                            //     if (value != null) {
+                            //      Get.to(() => ProfileWithLogin());
+                            //     }else{
+                            //       controller.isLoading.value = false;
+                            //     }
+                            //   });
+                            // },
+                            buttonText: 'Sign In',
+                          ),
                     10.heightBox,
                     SizedBox(
                       width: double.infinity,
@@ -101,8 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () => Get.to(() => const SignUpScreen()),
                             child: const Text(
                               'Don\'t have \nan account?',
-                              style:
-                                  TextStyle(color: textWhiteColor, fontSize: 18),
+                              style: TextStyle(
+                                  color: textWhiteColor, fontSize: 18),
                             ),
                           ),
                         ],
@@ -132,5 +150,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-

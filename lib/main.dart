@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         
-        home: const ProfileWithLogin(),
+        home: const TabsScreen(),
         routes: {
           '/login': (context) => const LoginScreen(),
           '/signup': (context) => const SignUpScreen(),
