@@ -76,11 +76,11 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
             if(!snapshot.hasData){
               return Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(Colors.green),
               ),
-              );
+              ); 
             } else{
               var data = snapshot.data!.docs[0];
             
-          // var data = snapshot.data!.docs[0].data() as Map<String, dynamic>;
+          
 
 
           
