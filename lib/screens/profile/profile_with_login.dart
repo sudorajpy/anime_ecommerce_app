@@ -28,7 +28,7 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
   @override
   void initState() {
     super.initState();
-    currentUser = FirebaseAuth.instance.currentUser;
+    currentUser = FirebaseAuth.instance.currentUser!;
   }
 
   @override
@@ -69,20 +69,21 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
           ],
         ),
         backgroundColor: Colors.transparent,
-        body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-          stream: currentUser != null
-              ? FireStoreServices.getUser(currentUser!.uid)
-              : null,
-          builder: (BuildContext context,
-              AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(Colors.red),
-                ),
+        body: StreamBuilder(
+          stream: FireStoreServices.getUser(currentUser!.uid),
+
+          builder:(BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot) {
+            if(!snapshot.hasData){
+              return Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(Colors.green),
+              ),
               );
-            } else if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
-              var data = snapshot.data!.docs[0].data() as Map<String, dynamic>;
+            } else{
+              var data = snapshot.data!.docs[0];
+            
+          // var data = snapshot.data!.docs[0].data() as Map<String, dynamic>;
+
+
+          
 
               return Center(
                 child: Column(
@@ -247,14 +248,13 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
                   ],
                 ),
               );
-            }else {
-      // Handle the case when the snapshot doesn't have data or docs list is empty
-      return const Text('No data available');
+            }
     }
-          },
+          
           
         ),
       ),
+      
     );
   }
 }
