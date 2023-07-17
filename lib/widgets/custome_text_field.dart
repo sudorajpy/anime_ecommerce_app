@@ -23,6 +23,7 @@ import '../constants/colors.dart';
               labelStyle: const TextStyle(color: Colors.white),
               alignLabelWithHint: true,
               floatingLabelBehavior: FloatingLabelBehavior.always,
+              
               // icon: Icon(Icons.person, color: gradient1,),
               prefixIcon: icon,
             ),

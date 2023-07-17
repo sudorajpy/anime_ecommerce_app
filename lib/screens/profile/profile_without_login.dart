@@ -7,37 +7,10 @@ import 'package:get/get.dart';
 
 import '../../../constants/colors.dart';
 
-class ProfileScreenWithoutLogin extends StatefulWidget {
+class ProfileScreenWithoutLogin extends StatelessWidget {
   const ProfileScreenWithoutLogin({super.key});
 
-  @override
-  State<ProfileScreenWithoutLogin> createState() => _ProfileScreenWithoutLoginState();
-}
-
-class _ProfileScreenWithoutLoginState extends State<ProfileScreenWithoutLogin> {
-  changeScreen(){
-    // Future.delayed(const Duration(seconds: 0), () {
-
-      auth.authStateChanges().listen((User? user) {
-        if (user == null ) {
-          Get.to(() => const LoginScreen());
-        } else {
-          
-          Get.to(() => const ProfileWithLogin());
-        }
-      });
-
-      
-    
-  }
-
-  @override
-  void initState() {
-    changeScreen();
-    super.initState();
-  }
-
-  
+  // changeScreen(){
   @override
   Widget build(BuildContext context) {
     return Scaffold(

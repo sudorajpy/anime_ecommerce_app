@@ -22,7 +22,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   var controller = Get.put(AuthController());
-  onTap() {}
 
   @override
   Widget build(BuildContext context) {
@@ -69,24 +68,29 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     30.heightBox,
                     controller.isLoading.value
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             valueColor:
                                 AlwaysStoppedAnimation<Color>(Colors.green),
                           )
                         : GradientButton(
                             onPressed: () async {
                               controller.isLoading.value = true;
-  await controller.loginMethod(context: context).then((value) {
-    if (value != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ProfileWithLogin()),
-      );
-    } else {
-      controller.isLoading.value = false;
-    }
-  });
-},
+                              await controller
+                                  .loginMethod(context: context)
+                                  .then((value) {
+                                if (value != null) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ProfileWithLogin()),
+                                  );
+                                } else {
+                                  controller.isLoading.value = false;
+                                  
+                                }
+                              });
+                            },
 
                             // () async {
                             //   controller.isLoading.value = true;

@@ -1,10 +1,13 @@
 import 'package:anime_ecommerce_app/screens/home/home.dart';
+import 'package:anime_ecommerce_app/screens/profile/profile_with_login.dart';
 import 'package:anime_ecommerce_app/screens/profile/profile_without_login.dart';
 import 'package:anime_ecommerce_app/screens/search/search.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../constants/colors.dart';
+import '../constants/firebase_consts.dart';
 import 'favrouits/favourits.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -17,7 +20,7 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedIndex = 0;
 
-  void _navigateBottomBar(int index){
+  void _navigateBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -27,16 +30,21 @@ class _TabsScreenState extends State<TabsScreen> {
     const HomeScreen(),
     const SearchScreen(),
     const FavoruitsScreen(),
-    const ProfileScreenWithoutLogin(),
+    // _profile(),
+    if (auth.currentUser == null) 
+        const ProfileScreenWithoutLogin()
+    else
+      const ProfileWithLogin(),
     // const ProfileScreen(),
   ];
 
-
-
-
-
-
-
+  // _profile() {
+  //   if (auth.currentUser == null) {
+  //     _pages.add(const ProfileScreenWithoutLogin());
+  //   } else {
+  //     _pages.add(const ProfileWithLogin());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +63,8 @@ class _TabsScreenState extends State<TabsScreen> {
               textSize: 24,
               selectedIndex: _selectedIndex,
               onTabChange: _navigateBottomBar,
-              tabActiveBorder: Border.all(color: const Color.fromARGB(255, 133, 58, 151)),
+              tabActiveBorder:
+                  Border.all(color: const Color.fromARGB(255, 133, 58, 151)),
               backgroundColor: backgroundColor,
               color: const Color.fromARGB(255, 170, 166, 166),
               activeColor: const Color.fromARGB(255, 255, 254, 255),
@@ -84,8 +93,3 @@ class _TabsScreenState extends State<TabsScreen> {
         ));
   }
 }
-
-
-
-
-

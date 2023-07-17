@@ -47,12 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 300,
                 0),
             20.heightBox,
-            Divider(
+            const Divider(
               color: Colors.white,
               thickness: 1,
             ),
-            CategoryList(),
-            Divider(
+            const CategoryList(),
+            const Divider(
               color: Colors.white,
               thickness: 1,
             ),
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.5,
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "I'm Little Shy To Come Outside",
                       style: TextStyle(
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     )))
               ],
             ),
-            Divider(
+            const Divider(
               color: Colors.white,
               thickness: 1,
             ),
