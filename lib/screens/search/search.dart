@@ -1,3 +1,4 @@
+import 'package:anime_ecommerce_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -10,6 +11,15 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      body: Center(
+        child:Stack(
+          children: [
+            Image.asset('assets/images/titan_wall.png')
+          ],
+        )
+      ),
+    );
   }
 }
