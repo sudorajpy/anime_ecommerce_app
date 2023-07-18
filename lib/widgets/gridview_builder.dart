@@ -34,7 +34,7 @@ class GridViewBuilder extends StatelessWidget {
               children: [
                 Container(
                     height: 140,
-                    child: Image.asset(
+                    child: Image.network(
                       'assets/images/ace_fs1.png',
                       fit: BoxFit.cover,
                     )),

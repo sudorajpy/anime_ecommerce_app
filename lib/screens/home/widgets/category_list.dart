@@ -1,4 +1,6 @@
+import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
 import 'package:anime_ecommerce_app/screens/categories_list/category_list_screen.dart';
+import 'package:anime_ecommerce_app/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -29,7 +31,7 @@ class CategoryList extends StatelessWidget {
                 //       CategoryListScreen(titleName: categoryNameList[index],)
                 //     })));
                 Get.to(() =>
-                    CategoryListScreen(titleName: categoryNameList[index]));
+                    CategoryListScreen(data: productsCollection,titleName: categoryNameList[index]),);
                 // Navigator.push(
                 //     context,
                 //     MaterialPageRoute(

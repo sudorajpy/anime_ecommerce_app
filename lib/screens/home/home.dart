@@ -24,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    // print(Colors.black.value);
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
@@ -80,7 +81,13 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               thickness: 1,
             ),
-            Swiper1(10, imagePath: firstSwiper, isEnlarged: false, width: double.infinity,color: Colors.deepPurple[200],),
+            Swiper1(
+              10,
+              imagePath: firstSwiper,
+              isEnlarged: false,
+              width: double.infinity,
+              color: Colors.deepPurple[200],
+            ),
             50.heightBox,
             Center(
               child: Stack(

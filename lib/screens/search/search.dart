@@ -11,15 +11,13 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+    print(Colors.purple.value);
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Center(
-        child:Stack(
-          children: [
-            Image.asset('assets/images/titan_wall.png')
-          ],
-        )
-      ),
+          child: Stack(
+        children: [Image.asset('assets/images/titan_wall.png')],
+      )),
     );
   }
 }

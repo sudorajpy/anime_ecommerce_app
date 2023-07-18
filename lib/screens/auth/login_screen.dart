@@ -74,22 +74,30 @@ class _LoginScreenState extends State<LoginScreen> {
                           )
                         : GradientButton(
                             onPressed: () async {
-                              controller.isLoading.value = true;
-                              await controller
-                                  .loginMethod(context: context)
-                                  .then((value) {
-                                if (value != null) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const ProfileWithLogin()),
-                                  );
-                                } else {
-                                  controller.isLoading.value = false;
-                                  
-                                }
-                              });
+                              try {
+                                controller.isLoading.value = true;
+                                await controller
+                                    .loginMethod(context: context)
+                                    .then(
+                                  (value) {
+                                    if (value != null) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const ProfileWithLogin()),
+                                      );
+                                    } else {
+                                      controller.isLoading.value = false;
+                                    }
+                                  },
+                                );
+                              } catch (e) {
+                                SnackBar(
+                                  content: Text(e.toString()),
+                                );
+                                print(e.toString());
+                              }
                             },
 
                             // () async {
