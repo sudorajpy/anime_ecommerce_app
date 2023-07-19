@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 final List<String> firstSwiper = [
   "assets/images/ace_fs1.png",

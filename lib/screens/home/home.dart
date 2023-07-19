@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'dart:ui';
 
 import 'widgets/swiper.dart';
 
@@ -31,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         flexibleSpace: const AppBarNav(),
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           child: Column(children: [
             const HeaderWidget(),
@@ -64,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'assets/images/titan_1.png',
                   height: 300,
                 ),
-                Container(
+                SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: const Center(
                         child: Text(
@@ -124,8 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             20.heightBox,
 
-            GridViewBuilder(
-              scrollPhysics: const NeverScrollableScrollPhysics(),
+            const GridViewBuilder(
+              scrollPhysics: NeverScrollableScrollPhysics(),
               itemCount: 5,
             ),
             Row(

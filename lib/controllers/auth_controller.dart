@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AuthController extends GetxController {
@@ -41,7 +40,7 @@ class AuthController extends GetxController {
 
 //storing data method
   storeUserData({name, password, email}) async {
-    DocumentReference store = await firestore.collection(usersCollection).doc();
+    DocumentReference store = firestore.collection(usersCollection).doc();
     store.set({
       'name': name,
       'email': email,

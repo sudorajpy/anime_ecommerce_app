@@ -11,7 +11,6 @@ import '../../widgets/gradiant_button.dart';
 import '../../widgets/custome_text_field.dart';
 import '../../widgets/social_button.dart';
 import '../profile/profile_with_login.dart';
-import '../tabs.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

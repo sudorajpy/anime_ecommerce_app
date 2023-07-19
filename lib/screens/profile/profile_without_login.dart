@@ -1,7 +1,4 @@
-import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
 import 'package:anime_ecommerce_app/screens/auth/login_screen.dart';
-import 'package:anime_ecommerce_app/screens/profile/profile_with_login.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,6 +1,5 @@
 import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
 import 'package:anime_ecommerce_app/screens/categories_list/category_list_screen.dart';
-import 'package:anime_ecommerce_app/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -15,7 +14,7 @@ class CategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 120,
       child: ListView.builder(

@@ -3,7 +3,6 @@ import 'package:anime_ecommerce_app/screens/profile/profile_with_login.dart';
 import 'package:anime_ecommerce_app/screens/profile/profile_without_login.dart';
 import 'package:anime_ecommerce_app/screens/search/search.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../constants/colors.dart';
@@ -50,7 +49,7 @@ class _TabsScreenState extends State<TabsScreen> {
     const HomeScreen(),
     const SearchScreen(),
     const FavoruitsScreen(),
-    ProfileScreenWithoutLogin(), // Placeholder, will be replaced dynamically
+    const ProfileScreenWithoutLogin(), // Placeholder, will be replaced dynamically
   ];
 
   @override

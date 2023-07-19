@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../../../../../constants/colors.dart';
 
 class Swiper extends StatelessWidget {
   Swiper(
@@ -24,7 +23,7 @@ class Swiper extends StatelessWidget {
         Image.asset('assets/images/pic.png'),
         Positioned(
           top: 65,
-          child: Container(
+          child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: VxSwiper.builder(
                 autoPlay: true,

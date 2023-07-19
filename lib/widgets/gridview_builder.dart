@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 
 class GridViewBuilder extends StatelessWidget {
-  GridViewBuilder({
+  const GridViewBuilder({
     super.key,
     required this.scrollPhysics,
     required this.itemCount,
@@ -32,7 +32,7 @@ class GridViewBuilder extends StatelessWidget {
             decoration: BoxDecoration(border: Border.all(color: gradient2)),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                     height: 140,
                     child: Image.network(
                       'assets/images/ace_fs1.png',
@@ -41,18 +41,18 @@ class GridViewBuilder extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: Container(
-                    child: Column(
+                    child: const Column(
                       children: [
-                        const Row(
+                        Row(
                           children: [
                             Text('Item Name'),
                             Spacer(),
                             LikeButton()
                           ],
                         ),
-                        Container(
+                        SizedBox(
                             width: double.infinity,
-                            child: const Text(
+                            child: Text(
                               'price',
                               textAlign: TextAlign.start,
                             ))

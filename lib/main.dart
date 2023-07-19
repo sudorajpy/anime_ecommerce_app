@@ -1,8 +1,6 @@
 import 'package:anime_ecommerce_app/screens/auth/login_screen.dart';
 import 'package:anime_ecommerce_app/screens/auth/signup_screen.dart';
-import 'package:anime_ecommerce_app/screens/profile/profile_without_login.dart';
 import 'package:anime_ecommerce_app/screens/profile/widgets/edit_profile_screen.dart';
-import 'package:anime_ecommerce_app/screens/profile/profile_with_login.dart';
 import 'package:anime_ecommerce_app/screens/tabs.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +25,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
           textTheme: const TextTheme(
-            bodyText1: TextStyle(color: Colors.white),
-            bodyText2: TextStyle(color: Colors.white),
+            bodyLarge: TextStyle(color: Colors.white),
+            bodyMedium: TextStyle(color: Colors.white),
           ),
         ),
         

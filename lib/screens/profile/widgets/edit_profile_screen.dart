@@ -196,14 +196,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             
                             else {
                               //if new password not match with old password
-                              Get.snackbar('Error', 'Old Password Not Match',colorText:Color.fromARGB(255, 0, 0, 0),backgroundColor:  Color.fromARGB(22, 248, 245, 245));
+                              Get.snackbar('Error', 'Old Password Not Match',colorText:const Color.fromARGB(255, 0, 0, 0),backgroundColor:  const Color.fromARGB(22, 248, 245, 245));
                               controller.isloading(false);
                             }
                           },
-                          child: const Text(
-                            "Save Changes",
-                            style: TextStyle(color: textWhiteColor),
-                          ),
                           style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.red[900]),
@@ -211,6 +207,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(102)))),
+                          child: const Text(
+                            "Save Changes",
+                            style: TextStyle(color: textWhiteColor),
+                          ),
                         ),
                       ),
               ],

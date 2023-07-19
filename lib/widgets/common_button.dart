@@ -1,4 +1,3 @@
-import 'package:anime_ecommerce_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CommonButton extends StatelessWidget {

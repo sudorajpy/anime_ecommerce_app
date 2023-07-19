@@ -1,7 +1,6 @@
 import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
 
 import 'package:anime_ecommerce_app/screens/profile/profile_with_login.dart';
-import 'package:anime_ecommerce_app/screens/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,5 +1,4 @@
 import 'package:anime_ecommerce_app/constants/colors.dart';
-import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
 import 'package:anime_ecommerce_app/screens/profile/widgets/bgwidget.dart';
 import 'package:anime_ecommerce_app/screens/profile/widgets/buttons.dart';
 import 'package:anime_ecommerce_app/screens/profile/widgets/edit_profile_screen.dart';
@@ -11,7 +10,6 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/profile_controller.dart';
-import '../../widgets/common_button.dart';
 
 class ProfileWithLogin extends StatefulWidget {
   const ProfileWithLogin({super.key});
@@ -97,7 +95,7 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
                 ),
                 backgroundColor: Colors.transparent,
                 body: SingleChildScrollView(
-                  physics: ClampingScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   child: ConstrainedBox(
 
                       constraints: BoxConstraints(

@@ -18,7 +18,7 @@ Widget ButtonsWidget(){
           child: SvgPicture.asset('assets/animations/svgs/payment_icon.svg',height: 40,)),
       ),
       10.heightBox,
-      Text('Payment', style: TextStyle(
+      const Text('Payment', style: TextStyle(
         color: Colors.black,
         fontSize: 15,
         fontWeight: FontWeight.bold,

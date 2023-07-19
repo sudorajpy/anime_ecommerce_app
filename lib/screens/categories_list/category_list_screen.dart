@@ -1,8 +1,6 @@
 
 
 import 'package:anime_ecommerce_app/constants/colors.dart';
-import 'package:anime_ecommerce_app/constants/firebase_consts.dart';
-import 'package:anime_ecommerce_app/data/lists.dart';
 import 'package:anime_ecommerce_app/services/firestore_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +41,7 @@ class CategoryListScreen extends StatelessWidget {
                     Expanded(
                         child: Container(
                       child: GridViewBuilder(
-                        scrollPhysics: BouncingScrollPhysics(),
+                        scrollPhysics: const BouncingScrollPhysics(),
                         itemCount: productsCollection.length,
                       ),
                     ))
