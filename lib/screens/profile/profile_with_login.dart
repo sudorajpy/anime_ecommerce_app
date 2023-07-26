@@ -46,7 +46,7 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
         } else {
           var data = snapshot.data!.docs[0];
 
-          return BGWidget(
+          return bGWidget(
             height: MediaQuery.of(context).size.height,
             color: backgroundColor,
             child: LayoutBuilder(
@@ -83,7 +83,6 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
                     ),
                     IconButton(
                       onPressed: () {
-                        
                         // Get.offAllNamed('/home');
                       },
                       icon: const Icon(
@@ -97,202 +96,200 @@ class _ProfileWithLoginState extends State<ProfileWithLogin> {
                 body: SingleChildScrollView(
                   physics: const ClampingScrollPhysics(),
                   child: ConstrainedBox(
-
-                      constraints: BoxConstraints(
+                    constraints: BoxConstraints(
                         minHeight: constraints.minHeight,
-                        maxHeight: double.maxFinite
-                      ),
-                      child: IntrinsicHeight(
-                  child: Column(
-                    children: [
-                      (context.screenHeight * 0.01).heightBox,
+                        maxHeight: double.maxFinite),
+                    child: IntrinsicHeight(
+                      child: Column(
+                        children: [
+                          (context.screenHeight * 0.01).heightBox,
 
-                      Container(
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: Colors.transparent,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: data['imgUrl'] == null
-                              ? Image.asset('assets/images/ace.png')
-                              : Image.network(data['imgUrl']),
-                        ),
-                      ),
+                          Container(
+                            height: 150,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Colors.transparent,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: data['imgUrl'] == null
+                                  ? Image.asset('assets/images/ace.png')
+                                  : Image.network(data['imgUrl']),
+                            ),
+                          ),
 
-                      // data['imgUrl'] == null
-                      //     ? const CircleAvatar(
-                      //         radius: 50,
-                      //         backgroundImage:
-                      //             AssetImage("assets/images/ace.png"),
-                      //       )
-                      //     : CircleAvatar(
-                      //         radius: 50,
-                      //         backgroundImage: NetworkImage(data['imgUrl']),
-                      //       ),
-                      // const CircleAvatar(
-                      //   radius: 50,
-                      //   backgroundImage: AssetImage("assets/images/ace.png"),
-                      // ),
-                      20.heightBox,
-                      Text(
-                        '${data['name']}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      10.heightBox,
-                      Container(
-                        width: 150,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Colors.red,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(
-                              Icons.diamond_outlined,
+                          // data['imgUrl'] == null
+                          //     ? const CircleAvatar(
+                          //         radius: 50,
+                          //         backgroundImage:
+                          //             AssetImage("assets/images/ace.png"),
+                          //       )
+                          //     : CircleAvatar(
+                          //         radius: 50,
+                          //         backgroundImage: NetworkImage(data['imgUrl']),
+                          //       ),
+                          // const CircleAvatar(
+                          //   radius: 50,
+                          //   backgroundImage: AssetImage("assets/images/ace.png"),
+                          // ),
+                          20.heightBox,
+                          Text(
+                            '${data['name']}',
+                            style: const TextStyle(
                               color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
-                            10.widthBox,
-                            const Text(
-                              'Gold Member',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                              ),
+                          ),
+                          10.heightBox,
+                          Container(
+                            width: 150,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.red,
                             ),
-                          ],
-                        ),
-                      ),
-                      (context.screenHeight * 0.1).heightBox,
-                      Expanded(
-                        child: Container(
-                          width: context.screenWidth,
-                          height: context.screenHeight,
-                          color: textWhiteColor,
-                          child: Column(
-                            children: [
-                              10.heightBox,
-                              Row(
-                                children: [
-                                  const Text(
-                                    'Transaction Details',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.diamond_outlined,
+                                  color: Colors.white,
+                                ),
+                                10.widthBox,
+                                const Text(
+                                  'Gold Member',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
                                   ),
-                                  const Spacer(),
-                                  TextButton(
-                                    onPressed: () {},
-                                    child: const Text(
-                                      'View All',
+                                ),
+                              ],
+                            ),
+                          ),
+                          (context.screenHeight * 0.1).heightBox,
+                          Expanded(
+                            child: Container(
+                              width: context.screenWidth,
+                              height: context.screenHeight,
+                              color: textWhiteColor,
+                              child: Column(
+                                children: [
+                                  10.heightBox,
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        'Transaction Details',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      TextButton(
+                                        onPressed: () {},
+                                        child: const Text(
+                                          'View All',
+                                          style: TextStyle(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  10.heightBox,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      ButtonsWidget(),
+                                      ButtonsWidget(),
+                                      ButtonsWidget(),
+                                      ButtonsWidget(),
+                                    ],
+                                  ),
+                                  20.heightBox,
+                                  const ListTile(
+                                    leading: Icon(
+                                      Icons.person,
+                                      color: Colors.grey,
+                                    ),
+                                    title: Text(
+                                      'My Wallet',
                                       style: TextStyle(
-                                        color: Colors.grey,
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  const ListTile(
+                                    leading: Icon(
+                                      Icons.person,
+                                      color: Colors.grey,
+                                    ),
+                                    title: Text(
+                                      'Member Status',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  const ListTile(
+                                    leading: Icon(
+                                      Icons.person,
+                                      color: Colors.grey,
+                                    ),
+                                    title: Text(
+                                      'Voucher',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  const ListTile(
+                                    leading: Icon(
+                                      Icons.person,
+                                      color: Colors.grey,
+                                    ),
+                                    title: Text(
+                                      'Help',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.grey,
+                                    ),
                                   ),
                                 ],
                               ),
-                              10.heightBox,
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  ButtonsWidget(),
-                                  ButtonsWidget(),
-                                  ButtonsWidget(),
-                                  ButtonsWidget(),
-                                ],
-                              ),
-                              20.heightBox,
-                              const ListTile(
-                                leading: Icon(
-                                  Icons.person,
-                                  color: Colors.grey,
-                                ),
-                                title: Text(
-                                  'My Wallet',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              const ListTile(
-                                leading: Icon(
-                                  Icons.person,
-                                  color: Colors.grey,
-                                ),
-                                title: Text(
-                                  'Member Status',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              const ListTile(
-                                leading: Icon(
-                                  Icons.person,
-                                  color: Colors.grey,
-                                ),
-                                title: Text(
-                                  'Voucher',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              const ListTile(
-                                leading: Icon(
-                                  Icons.person,
-                                  color: Colors.grey,
-                                ),
-                                title: Text(
-                                  'Help',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
+                    ),
                   ),
                 ),
               );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-Widget BGWidget({Widget? child, Color? color, double? height}){
+Widget bGWidget({Widget? child, Color? color, double? height}) {
   return Container(
     height: height,
     decoration: BoxDecoration(
@@ -10,7 +9,6 @@ Widget BGWidget({Widget? child, Color? color, double? height}){
       //   fit: BoxFit.fill,
       // ),
       color: color,
-      
     ),
     child: child,
   );
